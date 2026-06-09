@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <header>
+    <header className="site-header">
       <nav className="site-nav">
         <Link to="/" className="nav-brand">
           StayEase
@@ -14,7 +14,7 @@ function Navbar() {
           <Link to="/login" className="nav-link">
             Login
           </Link>
-          <Link to="/register" className="nav-link">
+          <Link to="/register" className="nav-link nav-cta">
             Register
           </Link>
         </div>

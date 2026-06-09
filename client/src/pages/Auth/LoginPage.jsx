@@ -6,8 +6,8 @@ function LoginPage() {
       <div className="auth-card">
         <div className="auth-copy">
           <span className="eyebrow">Welcome back</span>
-          <h1>Login to StayEase</h1>
-          <p>Access your account to manage bookings, view favorites, and continue your travel plans.</p>
+          <h1>Sign in to StayEase</h1>
+          <p>Manage bookings, favorites, and travel plans from one account.</p>
         </div>
         <form className="auth-form">
           <div className="form-group">

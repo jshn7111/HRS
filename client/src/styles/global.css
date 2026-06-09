@@ -64,9 +64,18 @@ section {
 }
 
 main.page-content {
-  padding: 2rem 1.5rem 3rem;
+  padding: 0;
   max-width: 1180px;
   margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
 }
 
 .site-nav {
@@ -77,8 +86,6 @@ main.page-content {
   max-width: 1180px;
   margin: 0 auto;
   padding: 1rem 1.5rem;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
 }
 
 .nav-brand {
@@ -114,9 +121,44 @@ main.page-content {
 .footer-inner {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  padding: 2rem 1.5rem;
   color: var(--muted);
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-columns h3 {
+  margin-bottom: 0.75rem;
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-columns li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-columns a {
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.footer-columns a:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  text-align: center;
 }
 
 .home-page .hero {
@@ -166,8 +208,70 @@ main.page-content {
   gap: 1rem;
 }
 
+.hero-image-card {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--surface-strong);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-image-block {
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.stat-card span {
+  color: var(--muted);
+}
+
+.site-section {
+  padding: 3rem 1.5rem 0;
+}
+
+.section-header {
+  max-width: 700px;
+  margin-bottom: 1.75rem;
+}
+
+.section-header h2 {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card-large {
+  grid-column: span 2;
+}
+
 .hero-card,
-.auth-card {
+.auth-card,
+.notfound-card {
   background: var(--surface-strong);
   border: 1px solid var(--border);
   border-radius: 1.5rem;
@@ -201,10 +305,11 @@ main.page-content {
 .feature-card {
   background: rgba(37, 99, 235, 0.06);
   border-radius: 1rem;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.35rem;
 }
 
-.auth-page {
+.auth-page,
+.notfound-page {
   display: grid;
   place-items: center;
   min-height: calc(100vh - 160px);
@@ -220,6 +325,22 @@ main.page-content {
   border-radius: 1.5rem;
   padding: 2rem;
   box-shadow: var(--shadow);
+}
+
+.notfound-card {
+  max-width: 520px;
+  text-align: center;
+}
+
+.notfound-card h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.notfound-card p {
+  margin: 1.25rem 0 1.75rem;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 .auth-copy {
@@ -300,7 +421,8 @@ main.page-content {
 
 @media (max-width: 960px) {
   .home-page .hero,
-  .auth-card {
+  .auth-card,
+  .footer-columns {
     grid-template-columns: 1fr;
   }
 
@@ -345,6 +467,12 @@ main.page-content {
 
   .hero {
     gap: 1.25rem;
+  }
+
+  .button,
+  .hero-actions,
+  .feature-grid {
+    width: 100%;
   }
 
   .button {

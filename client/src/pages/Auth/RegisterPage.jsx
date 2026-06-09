@@ -7,7 +7,7 @@ function RegisterPage() {
         <div className="auth-copy">
           <span className="eyebrow">Get started</span>
           <h1>Create your StayEase account</h1>
-          <p>Sign up to manage your bookings, save favorites, and enjoy hassle-free hotel search.</p>
+          <p>Sign up to manage bookings, save favorites, and book stays faster.</p>
         </div>
         <form className="auth-form">
           <div className="form-group">
