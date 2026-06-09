@@ -1,0 +1,41 @@
+User
+{
+  _id,
+  name,
+  email,
+  password,
+  role
+}
+
+Hotel
+{
+  _id,
+  name,
+  location,
+  description,
+  images,
+  amenities,
+  rooms
+}
+
+Room
+{
+  _id,
+  hotelId,
+  type,
+  price,
+  capacity,
+  available
+}
+
+Booking
+{
+  _id,
+  userId,
+  hotelId,
+  roomId,
+  checkIn,
+  checkOut,
+  amount,
+  status
+}
