@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser, setToken, setLoading } from '../redux/slices/authSlice';
 import { onAuthStateChange, getProfile } from '../services/authService';
+import { isSupabaseConfigured } from '../lib/supabase';
 
 const AuthContext = createContext(null);
 
@@ -11,6 +12,22 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     dispatch(setLoading(true));
+
+    if (!isSupabaseConfigured) {
+      dispatch(setLoading(false));
+      setInitialized(true);
+      return undefined;
+    }
+
+    let active = true;
+
+    const finishInit = () => {
+      if (!active) return;
+      dispatch(setLoading(false));
+      setInitialized(true);
+    };
+
+    const timeout = setTimeout(finishInit, 4000);
 
     const { data: { subscription } } = onAuthStateChange(async (event, session) => {
       if (session?.user) {
@@ -32,11 +49,15 @@ export function AuthProvider({ children }) {
         dispatch(setUser(null));
         dispatch(setToken(null));
       }
-      dispatch(setLoading(false));
-      setInitialized(true);
+      clearTimeout(timeout);
+      finishInit();
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      active = false;
+      clearTimeout(timeout);
+      subscription.unsubscribe();
+    };
   }, [dispatch]);
 
   if (!initialized) {

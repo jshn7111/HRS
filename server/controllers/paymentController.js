@@ -2,6 +2,9 @@ import razorpay from '../config/razorpay.js';
 import Payment from '../models/Payment.js';
 
 export const createPayment = async (req, res) => {
+  if (!razorpay) {
+    return res.status(503).json({ message: 'Payment gateway not configured. Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET.' });
+  }
   const { amount, currency = 'INR', receipt } = req.body;
   const options = {
     amount: Math.round(amount * 100),
