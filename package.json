@@ -7,9 +7,10 @@
     "server"
   ],
   "scripts": {
-    "dev": "concurrently \"npm:start --workspace client\" \"npm:start --workspace server\"",
-    "start:client": "npm start --workspace client",
-    "start:server": "npm start --workspace server",
+    "dev": "concurrently \"npm run dev --workspace client\" \"npm run dev --workspace server\"",
+    "start": "npm run dev",
+    "start:client": "npm run dev --workspace client",
+    "start:server": "npm run start --workspace server",
     "test": "npm test --workspaces"
   },
   "devDependencies": {

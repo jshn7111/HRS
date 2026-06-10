@@ -1,0 +1,30 @@
+# StayEase — LLM & AI Crawler Information
+
+> StayEase is a hotel booking platform for travelers in India.
+
+## About
+StayEase helps users discover, compare, and book hotels across Indian cities including Mumbai, Bangalore, New Delhi, Jaipur, Goa, and Shimla.
+
+## Key Pages
+- Home: /
+- Hotels listing: /hotels
+- Hotel details: /hotels/{slug}
+- About: /about
+- FAQ: /faq
+- Contact: /contact
+- Login: /login
+- Register: /register
+
+## Features
+- Hotel search by city, dates, and guests
+- User accounts with booking management
+- Verified hotel listings with ratings and amenities
+- Mobile-responsive design
+- Secure authentication via Supabase
+
+## Contact
+- Email: support@stayease.com
+- Website: https://stayease.vercel.app
+
+## Data Policy
+Content on this site is human-authored. Hotel data is curated and verified.
