@@ -1,0 +1,9 @@
+.hotel-offers{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:10px 12px;margin-top:10px;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.75));display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hotel-offers-badge{font-weight:700;color:#0b57d0}
+.hotel-offers-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;width:100%}
+.hotel-offers-title{font-weight:800}
+.hotel-offers-sub{font-size:12px;opacity:.8;margin-top:2px}
+.hotel-offers-price{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.hotel-offers-original{text-decoration:line-through;opacity:.65;font-size:13px}
+.hotel-offers-now{font-weight:900;color:#0f766e}
+

@@ -8,7 +8,9 @@ import ForgotPasswordPage from '../pages/Auth/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/Auth/ResetPasswordPage';
 import HotelsPage from '../pages/Hotels/HotelsPage';
 import HotelDetailPage from '../pages/Hotels/HotelDetailPage';
+import NearbyHotelsPage from '../pages/Hotels/NearbyHotelsPage';
 import DashboardPage from '../pages/Dashboard/DashboardPage';
+
 import AboutPage from '../pages/Misc/AboutPage';
 import ContactPage from '../pages/Misc/ContactPage';
 import FAQPage from '../pages/Misc/FAQPage';
@@ -23,7 +25,9 @@ function AppRoutes() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="hotels" element={<HotelsPage />} />
+        <Route path="hotels-nearby" element={<NearbyHotelsPage />} />
         <Route path="hotels/:slug" element={<HotelDetailPage />} />
+
         <Route path="about" element={<AboutPage />} />
         <Route path="faq" element={<FAQPage />} />
         <Route path="contact" element={<ContactPage />} />

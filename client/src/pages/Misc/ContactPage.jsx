@@ -1,11 +1,12 @@
 import SEO from '../../components/seo/SEO';
 import ContactForm from '../../components/contact/ContactForm';
+import { STAYEASE_CONTACT } from '../../constants/contactInfo';
 
 const CONTACT_INFO = [
-  { icon: '📧', label: 'Email', value: 'support@stayease.com' },
-  { icon: '📞', label: 'Phone', value: '+91 1800-123-4567' },
-  { icon: '📍', label: 'Office', value: 'Mumbai, Maharashtra, India' },
-  { icon: '🕐', label: 'Hours', value: 'Mon–Sat, 9 AM – 6 PM IST' },
+  { icon: '\u{1F4E7}', label: 'Email', value: STAYEASE_CONTACT.email },
+  { icon: '\u{1F4DE}', label: 'Phone', value: STAYEASE_CONTACT.phone },
+  { icon: '\u{1F4CD}', label: 'Head Office', value: STAYEASE_CONTACT.headOffice },
+  { icon: '\u{1F550}', label: 'Hours', value: STAYEASE_CONTACT.hours },
 ];
 
 function ContactPage() {
@@ -13,7 +14,7 @@ function ContactPage() {
     <>
       <SEO
         title="Contact Us"
-        description="Get in touch with StayEase support. We're here to help with bookings, account issues, and partnership inquiries."
+        description="Get in touch with StayEase support at our Chandigarh head office. We're here to help with bookings, account issues, and partnership inquiries."
         path="/contact"
       />
       <section className="contact-page">

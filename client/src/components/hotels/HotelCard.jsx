@@ -12,6 +12,7 @@ function HotelCard({ hotel }) {
         <span className="hotel-rating">★ {hotel.rating}</span>
       </Link>
       <div className="hotel-card-body">
+
         <div className="hotel-card-location">{hotel.city}, {hotel.country || 'India'}</div>
         <h3 className="hotel-card-title">
           <Link to={`/hotels/${hotel.slug}`}>{hotel.name}</Link>
@@ -26,6 +27,7 @@ function HotelCard({ hotel }) {
         </div>
         <div className="hotel-card-footer">
           <div className="hotel-card-price">
+
             <span className="price-label">From</span>
             <strong>{formatCurrency(hotel.price_from)}</strong>
             <span className="price-unit">/night</span>
@@ -40,3 +42,4 @@ function HotelCard({ hotel }) {
 }
 
 export default HotelCard;
+
