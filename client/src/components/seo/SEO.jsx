@@ -13,7 +13,7 @@ export default function SEO({
   keywords,
   noindex = false,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Smart Hotel Booking Platform`;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Smart Hotel Booking Platform`;
   const fullDescription =
     description ||
     'Discover and book hotels across India with StayEase. Compare rooms, read reviews, and secure your stay with confidence.';

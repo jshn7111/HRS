@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Loader } from '@googlemaps/js-api-loader';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { fetchHotels } from '../../services/hotelService';
+import { getCoordinates, getHotelCoordinates } from '../../services/openStreetMapService';
 
 const DEFAULT_CENTER_FALLBACK = { lat: 19.076, lng: 72.8777 }; // Mumbai
 
@@ -23,18 +23,12 @@ function haversineKm(a, b) {
 
 export default function NearbyHotels() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [center, setCenter] = useState(DEFAULT_CENTER_FALLBACK);
+  const [locationQuery, setLocationQuery] = useState(searchParams.get('city') || '');
   const [distanceKm, setDistanceKm] = useState(10);
   const [hotels, setHotels] = useState([]);
-
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-
-  const loader = useMemo(() => {
-    if (!apiKey) return null;
-    return new Loader({ apiKey, version: 'weekly', libraries: ['places'] });
-  }, [apiKey]);
 
   const resolveCurrentLocation = () => {
     return new Promise((resolve, reject) => {
@@ -47,53 +41,50 @@ export default function NearbyHotels() {
     });
   };
 
-  const attachLatLngToHotels = async (list, geocoder) => {
-    // If your Supabase table already stores lat/lng, you can skip this.
-    // Current codebase fallback uses address/location text; geocode those.
-    const enriched = await Promise.all(
-      list.map(async (h) => {
-        if (typeof h.lat === 'number' && typeof h.lng === 'number') return h;
+  const resolveSearchCenter = async () => {
+    const place = locationQuery.trim();
+    if (place) {
+      const coords = await getCoordinates(place);
+      if (!coords) throw new Error(`No coordinates found for "${place}". Try another city or area.`);
+      return { lat: coords.lat, lng: coords.lng };
+    }
 
-        const address = h.location || `${h.name}, ${h.city}`;
-        try {
-          const res = await geocoder.geocode({ address });
-          const loc = res?.results?.[0]?.geometry?.location;
-          if (loc) return { ...h, lat: loc.lat(), lng: loc.lng() };
-        } catch {
-          // ignore
+    try {
+      return await resolveCurrentLocation();
+    } catch {
+      return DEFAULT_CENTER_FALLBACK;
+    }
+  };
+
+  const attachLatLngToHotels = async (list) => {
+    const enriched = [];
+
+    for (const hotel of list) {
+      try {
+        const coords = await getHotelCoordinates(hotel);
+        if (coords) {
+          enriched.push({ ...hotel, lat: coords.lat, lng: coords.lng });
+        } else {
+          enriched.push(hotel);
         }
-        return h;
-      })
-    );
+      } catch {
+        enriched.push(hotel);
+      }
+    }
 
     return enriched;
   };
 
-  const handleFindNearby = async () => {
+  const handleFindNearby = async (event) => {
+    event?.preventDefault();
     setLoading(true);
     setError('');
+
     try {
-      const googleMapsReady = async () => {
-        if (!loader) throw new Error('Missing Google Maps API key. Set VITE_GOOGLE_MAPS_API_KEY');
-        const google = await loader.load();
-        return google;
-      };
+      const nextCenter = await resolveSearchCenter();
 
-      let nextCenter = center;
-      try {
-        nextCenter = await resolveCurrentLocation();
-      } catch {
-        // keep fallback
-      }
-      setCenter(nextCenter);
-
-      const google = await googleMapsReady();
-      const geocoder = new google.maps.Geocoder();
-
-      // Pull hotels by city if present; otherwise fetch all and filter client-side.
-      // This keeps changes small.
       const list = await fetchHotels({});
-      const enriched = await attachLatLngToHotels(list, geocoder);
+      const enriched = await attachLatLngToHotels(list);
 
       const within = enriched
         .filter((h) => typeof h.lat === 'number' && typeof h.lng === 'number')
@@ -114,7 +105,6 @@ export default function NearbyHotels() {
   };
 
   useEffect(() => {
-    // Auto-run once on page load
     handleFindNearby();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -124,10 +114,25 @@ export default function NearbyHotels() {
       <div className="page-hero">
         <span className="eyebrow">Find hotels near you</span>
         <h1>Nearby stays</h1>
-        <p>Uses your location + Google Maps to find hotels close by.</p>
+        <p>Use your current location or search by city with OpenStreetMap.</p>
       </div>
 
-      <div className="filter-bar" style={{ gridTemplateColumns: '1fr auto auto' }}>
+      <form
+        className="filter-bar"
+        style={{ gridTemplateColumns: 'minmax(180px, 1fr) minmax(140px, auto) auto auto' }}
+        onSubmit={handleFindNearby}
+      >
+        <div className="form-group">
+          <label htmlFor="nearby-location">City or area</label>
+          <input
+            id="nearby-location"
+            type="search"
+            placeholder="Jaipur, Mumbai..."
+            value={locationQuery}
+            onChange={(e) => setLocationQuery(e.target.value)}
+          />
+        </div>
+
         <div className="form-group">
           <label htmlFor="radius">Distance (km)</label>
           <select id="radius" value={distanceKm} onChange={(e) => setDistanceKm(Number(e.target.value))}>
@@ -139,7 +144,7 @@ export default function NearbyHotels() {
           </select>
         </div>
 
-        <button type="button" className="button button-primary" onClick={handleFindNearby} disabled={loading}>
+        <button type="submit" className="button button-primary" disabled={loading}>
           {loading ? 'Searching...' : 'Search nearby'}
         </button>
 
@@ -151,7 +156,7 @@ export default function NearbyHotels() {
         >
           View all hotels
         </button>
-      </div>
+      </form>
 
       {error && (
         <div className="empty-state-inline">
@@ -186,9 +191,7 @@ export default function NearbyHotels() {
                   loading="lazy"
                 />
                 <span className="hotel-badge">Nearby</span>
-                <span className="hotel-rating">
-                  {hotel.distanceKm.toFixed(1)} km
-                </span>
+                <span className="hotel-rating">{hotel.distanceKm.toFixed(1)} km</span>
               </div>
               <div className="hotel-card-body">
                 <div className="hotel-card-location">
@@ -199,10 +202,14 @@ export default function NearbyHotels() {
                 <div className="hotel-card-footer">
                   <div className="hotel-card-price">
                     <span className="price-label">From</span>
-                    <strong>{hotel.price_from ? `₹${hotel.price_from}` : ''}</strong>
+                    <strong>{hotel.price_from ? `Rs. ${hotel.price_from}` : ''}</strong>
                     <span className="price-unit">/night</span>
                   </div>
-                  <button type="button" className="button button-primary button-sm" onClick={() => navigate(`/hotels/${hotel.slug}`)}>
+                  <button
+                    type="button"
+                    className="button button-primary button-sm"
+                    onClick={() => navigate(`/hotels/${hotel.slug}`)}
+                  >
                     View details
                   </button>
                 </div>
@@ -218,9 +225,8 @@ export default function NearbyHotels() {
       )}
 
       <p style={{ color: 'var(--muted)', fontSize: '0.9rem', textAlign: 'center', marginTop: '1.25rem' }}>
-        Tip: If hotels don’t have lat/lng in your database, we geocode their location/address (may be slower).
+        Tip: If hotels do not have lat/lng in your database, OpenStreetMap geocodes their location/address.
       </p>
     </section>
   );
 }
-

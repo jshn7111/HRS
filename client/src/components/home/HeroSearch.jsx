@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CITIES = ['Mumbai', 'Bangalore', 'New Delhi', 'Jaipur', 'Goa', 'Shimla'];
-
 function HeroSearch() {
   const navigate = useNavigate();
   const [city, setCity] = useState('');
@@ -27,14 +25,13 @@ function HeroSearch() {
       <div className="hero-search-grid">
         <div className="form-group">
           <label htmlFor="search-city">Destination</label>
-          <select id="search-city" value={city} onChange={(e) => setCity(e.target.value)}>
-            <option value="">All cities</option>
-            {CITIES.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
+          <input
+            id="search-city"
+            type="search"
+            placeholder="Search any city in India"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="search-checkin">Check-in</label>

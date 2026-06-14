@@ -10,7 +10,7 @@ const FAQS = [
   {
     question: 'Can I cancel or modify my booking?',
     answer:
-      'Yes. Go to your Dashboard to view active bookings. Cancellation policies vary by hotel — check the hotel details page for specific terms before booking.',
+      'Yes. Go to your Dashboard to view active bookings. Cancellation policies vary by hotel - check the hotel details page for specific terms before booking.',
   },
   {
     question: 'Is my payment information secure?',

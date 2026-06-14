@@ -1,0 +1,227 @@
+{
+  "Jaipur": {
+    "city": "Jaipur",
+    "latitude": 26.9154576,
+    "longitude": 75.8189817,
+    "display_name": "Jaipur, Jaipur Municipal Corporation, Jaipur Tehsil, Jaipur, Rajasthan, 302001, India",
+    "osm_type": "node",
+    "osm_id": 315734346,
+    "fetched_at": "2026-06-14T15:51:30.018Z"
+  },
+  "Delhi": {
+    "city": "Delhi",
+    "latitude": 28.6138954,
+    "longitude": 77.2090057,
+    "display_name": "New Delhi, Delhi, India",
+    "osm_type": "relation",
+    "osm_id": 2763541,
+    "fetched_at": "2026-06-14T15:51:31.771Z"
+  },
+  "Mumbai": {
+    "city": "Mumbai",
+    "latitude": 19.054999,
+    "longitude": 72.8692035,
+    "display_name": "Mumbai, Mumbai Suburban District, Maharashtra, 400051, India",
+    "osm_type": "node",
+    "osm_id": 16173235,
+    "fetched_at": "2026-06-14T15:51:33.506Z"
+  },
+  "Chandigarh": {
+    "city": "Chandigarh",
+    "latitude": 30.7334421,
+    "longitude": 76.7797143,
+    "display_name": "Chandigarh, 160018, India",
+    "osm_type": "node",
+    "osm_id": 342117043,
+    "fetched_at": "2026-06-14T15:51:35.326Z"
+  },
+  "Bangalore": {
+    "city": "Bangalore",
+    "latitude": 12.9767936,
+    "longitude": 77.590082,
+    "display_name": "Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, India",
+    "osm_type": "relation",
+    "osm_id": 7902476,
+    "fetched_at": "2026-06-14T15:51:37.896Z"
+  },
+  "Hyderabad": {
+    "city": "Hyderabad",
+    "latitude": 17.360589,
+    "longitude": 78.4740613,
+    "display_name": "Hyderabad, Bahadurpura mandal, Hyderabad, Telangana, India",
+    "osm_type": "relation",
+    "osm_id": 7868535,
+    "fetched_at": "2026-06-14T15:51:39.564Z"
+  },
+  "Pune": {
+    "city": "Pune",
+    "latitude": 18.5213738,
+    "longitude": 73.8545071,
+    "display_name": "Pune, Pune City Subdistrict, Pune, Maharashtra, 411001, India",
+    "osm_type": "node",
+    "osm_id": 16174445,
+    "fetched_at": "2026-06-14T15:51:41.273Z"
+  },
+  "Chennai": {
+    "city": "Chennai",
+    "latitude": 13.0836939,
+    "longitude": 80.270186,
+    "display_name": "Chennai Corporation, Chennai, Tamil Nadu, India",
+    "osm_type": "relation",
+    "osm_id": 1766358,
+    "fetched_at": "2026-06-14T15:51:43.109Z"
+  },
+  "Kolkata": {
+    "city": "Kolkata",
+    "latitude": 22.5726459,
+    "longitude": 88.3638953,
+    "display_name": "Kolkata, Kolkata Metropolitan Area, Kolkata, West Bengal, India",
+    "osm_type": "relation",
+    "osm_id": 9381363,
+    "fetched_at": "2026-06-14T15:51:45.067Z"
+  },
+  "Ahmedabad": {
+    "city": "Ahmedabad",
+    "latitude": 23.0215374,
+    "longitude": 72.5800568,
+    "display_name": "Ahmedabad, Gujarat, 380001, India",
+    "osm_type": "node",
+    "osm_id": 245711197,
+    "fetched_at": "2026-06-14T15:51:46.661Z"
+  },
+  "Udaipur": {
+    "city": "Udaipur",
+    "latitude": 24.578721,
+    "longitude": 73.6862571,
+    "display_name": "Udaipur, Girwa Tehsil, Udaipur, Rajasthan, 313001, India",
+    "osm_type": "node",
+    "osm_id": 2409551371,
+    "fetched_at": "2026-06-14T15:51:48.189Z"
+  },
+  "Jodhpur": {
+    "city": "Jodhpur",
+    "latitude": 26.2967719,
+    "longitude": 73.0351433,
+    "display_name": "Jodhpur, Jodhpur Tehsil, Jodhpur, Rajasthan, India",
+    "osm_type": "way",
+    "osm_id": 31725312,
+    "fetched_at": "2026-06-14T15:51:50.937Z"
+  },
+  "Goa": {
+    "city": "Goa",
+    "latitude": 15.3004543,
+    "longitude": 74.0855134,
+    "display_name": "Goa, India",
+    "osm_type": "relation",
+    "osm_id": 11251493,
+    "fetched_at": "2026-06-14T15:51:53.489Z"
+  },
+  "Shimla": {
+    "city": "Shimla",
+    "latitude": 31.1040393,
+    "longitude": 77.1707923,
+    "display_name": "Shimla, Shimla (urban), Shimla, Himachal Pradesh, 171001, India",
+    "osm_type": "node",
+    "osm_id": 316417040,
+    "fetched_at": "2026-06-14T15:51:55.219Z"
+  },
+  "Manali": {
+    "city": "Manali",
+    "latitude": 32.2454608,
+    "longitude": 77.1872926,
+    "display_name": "Manali, Kullu, Himachal Pradesh, 175131, India",
+    "osm_type": "node",
+    "osm_id": 245773022,
+    "fetched_at": "2026-06-14T15:51:57.130Z"
+  },
+  "Amritsar": {
+    "city": "Amritsar",
+    "latitude": 31.6356659,
+    "longitude": 74.8787496,
+    "display_name": "Amritsar, Amritsar I Tahsil, Amritsar, Punjab, 143001, India",
+    "osm_type": "node",
+    "osm_id": 245772397,
+    "fetched_at": "2026-06-14T15:51:59.359Z"
+  },
+  "Lucknow": {
+    "city": "Lucknow",
+    "latitude": 26.8381,
+    "longitude": 80.9346001,
+    "display_name": "Lucknow, Uttar Pradesh, 226027, India",
+    "osm_type": "node",
+    "osm_id": 245753718,
+    "fetched_at": "2026-06-14T15:52:01.024Z"
+  },
+  "Surat": {
+    "city": "Surat",
+    "latitude": 21.2094892,
+    "longitude": 72.8317058,
+    "display_name": "Surat, Katargam Taluka, Surat, Gujarat, 395008, India",
+    "osm_type": "node",
+    "osm_id": 10029899747,
+    "fetched_at": "2026-06-14T15:52:03.365Z"
+  },
+  "Indore": {
+    "city": "Indore",
+    "latitude": 22.7203616,
+    "longitude": 75.8681996,
+    "display_name": "Indore, Juni Indore Tahsil, Indore, Madhya Pradesh, 452001, India",
+    "osm_type": "node",
+    "osm_id": 245709027,
+    "fetched_at": "2026-06-14T15:52:05.328Z"
+  },
+  "Bhopal": {
+    "city": "Bhopal",
+    "latitude": 23.2584857,
+    "longitude": 77.401989,
+    "display_name": "Bhopal, Huzur Tahsil, Bhopal, Madhya Pradesh, 462001, India",
+    "osm_type": "node",
+    "osm_id": 245712627,
+    "fetched_at": "2026-06-14T15:52:07.670Z"
+  },
+  "Dehradun": {
+    "city": "Dehradun",
+    "latitude": 30.3255646,
+    "longitude": 78.0436813,
+    "display_name": "Dehradun, Uttarakhand, 248001, India",
+    "osm_type": "node",
+    "osm_id": 299531301,
+    "fetched_at": "2026-06-14T15:52:09.270Z"
+  },
+  "Agra": {
+    "city": "Agra",
+    "latitude": 27.1752554,
+    "longitude": 78.0098161,
+    "display_name": "Agra, Uttar Pradesh, 280001, India",
+    "osm_type": "node",
+    "osm_id": 567267943,
+    "fetched_at": "2026-06-14T15:52:11.215Z"
+  },
+  "Varanasi": {
+    "city": "Varanasi",
+    "latitude": 25.3356491,
+    "longitude": 83.0076292,
+    "display_name": "Varanasi, Sadar, Varanasi, Uttar Pradesh, 221001, India",
+    "osm_type": "node",
+    "osm_id": 287687798,
+    "fetched_at": "2026-06-14T15:52:13.163Z"
+  },
+  "Kochi": {
+    "city": "Kochi",
+    "latitude": 9.9679032,
+    "longitude": 76.2444378,
+    "display_name": "Kochi, Ernakulam, Kerala, 682001, India",
+    "osm_type": "node",
+    "osm_id": 3862624198,
+    "fetched_at": "2026-06-14T15:52:15.725Z"
+  },
+  "Mysore": {
+    "city": "Mysore",
+    "latitude": 12.3051828,
+    "longitude": 76.6553609,
+    "display_name": "Mysuru, Mysuru taluk, Mysuru District, Karnataka, 570001, India",
+    "osm_type": "node",
+    "osm_id": 2068274800,
+    "fetched_at": "2026-06-14T15:52:18.656Z"
+  }
+}

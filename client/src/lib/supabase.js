@@ -5,7 +5,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn(
-    'Supabase credentials missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
+    'Supabase credentials missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in client/.env.local.'
   );
 }
 
@@ -22,3 +22,4 @@ export const supabase = createClient(
 );
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+

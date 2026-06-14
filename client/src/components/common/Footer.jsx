@@ -7,18 +7,18 @@ function Footer() {
         <div className="footer-columns">
           <div className="footer-brand-col">
             <Link to="/" className="footer-brand">
-              🏨 StayEase
+              StayEase
             </Link>
             <p>
-              Smart hotel booking for every traveler. Compare stays, read reviews, and book with confidence across
+              Smart hotel booking for every traveler. Compare verified stays, city coordinates, and prices across
               India.
             </p>
             <div className="footer-social">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                𝕏
+                X
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                📷
+                IG
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 in
@@ -53,7 +53,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} StayEase. All rights reserved.</p>
+          <p>(c) {new Date().getFullYear()} StayEase. All rights reserved.</p>
           <p className="footer-tagline">Making hotel booking simple, fast, and secure.</p>
         </div>
       </div>

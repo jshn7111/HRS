@@ -38,7 +38,7 @@ function HotelsPage() {
         <div className="page-hero">
           <span className="eyebrow">Explore stays</span>
           <h1>Find your perfect hotel</h1>
-          <p>Browse curated hotels across India's top destinations.</p>
+          <p>Search any Indian city and discover hotels listed in that area.</p>
         </div>
 
         <form className="filter-bar" onSubmit={handleFilter}>
@@ -54,14 +54,13 @@ function HotelsPage() {
           </div>
           <div className="form-group">
             <label htmlFor="filter-city">City</label>
-            <select id="filter-city" value={city} onChange={(e) => setCity(e.target.value)}>
-              <option value="">All cities</option>
-              {['Mumbai', 'Bangalore', 'New Delhi', 'Jaipur', 'Goa', 'Shimla'].map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            <input
+              id="filter-city"
+              type="search"
+              placeholder="Enter any Indian city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
           </div>
           <button type="submit" className="button button-primary">
             Apply filters
@@ -77,7 +76,7 @@ function HotelsPage() {
         ) : hotels.length === 0 ? (
           <div className="empty-state">
             <h2>No hotels found</h2>
-            <p>Try adjusting your search or city filter.</p>
+            <p>Try another city name or remove the hotel-name filter.</p>
           </div>
         ) : (
           <div className="hotel-grid">

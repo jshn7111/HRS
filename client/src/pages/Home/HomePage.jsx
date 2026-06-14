@@ -9,18 +9,18 @@ function HomePage() {
     <>
       <SEO
         title="Book Hotels Across India"
-        description="Discover premium hotels, compare rooms, and book your next stay with StayEase. Trusted by thousands of travelers across India."
+        description="Search 5000 hotel records across 25 Indian cities with city coordinates, prices, ratings, and Supabase authentication."
         path="/"
         keywords="hotel booking, India hotels, stay booking, Mumbai hotels, Goa resorts, travel"
       />
       <section className="home-page">
         <div className="hero">
           <div className="hero-content">
-            <span className="eyebrow">Travel with confidence</span>
-            <h1>Plan your stay easily with StayEase</h1>
+            <span className="eyebrow">5000 hotels across India</span>
+            <h1>Search city hotels with real map-ready coordinates</h1>
             <p>
-              Discover hotels, compare rooms, and book your next trip in a few clicks. StayEase makes hotel search
-              effortless on desktop and mobile.
+              Find stays in Jaipur, Delhi, Mumbai, Bangalore, Goa, and more. Every generated hotel includes realistic
+              pricing, ratings, amenities, and coordinates ready for OpenStreetMap and Leaflet.
             </p>
             <HeroSearch />
             <div className="hero-actions">
@@ -34,21 +34,21 @@ function HomePage() {
           </div>
           <div className="hero-image-card">
             <div className="hero-image-block">
-              <h2>Beautiful stays made simple</h2>
-              <p>All the hotel details you need are clearly displayed so you can choose with confidence.</p>
+              <h2>Live Supabase inventory</h2>
+              <p>Authentication, public hotel browsing, RLS policies, and city search are wired into one flow.</p>
             </div>
             <div className="stats-grid">
               <div className="stat-card">
-                <strong>1,250+</strong>
-                <span>Hotels curated</span>
+                <strong>5000</strong>
+                <span>Hotels seeded</span>
               </div>
               <div className="stat-card">
-                <strong>98%</strong>
-                <span>Guest satisfaction</span>
+                <strong>25</strong>
+                <span>Cities covered</span>
               </div>
               <div className="stat-card">
-                <strong>24/7</strong>
-                <span>Support ready</span>
+                <strong>100%</strong>
+                <span>Geo-ready rows</span>
               </div>
             </div>
           </div>
@@ -63,22 +63,22 @@ function HomePage() {
           </div>
           <div className="feature-grid">
             <article className="feature-card feature-card-large">
-              <div className="feature-icon">🔍</div>
+              <div className="feature-icon" aria-hidden="true">S</div>
               <h3>Search and compare</h3>
               <p>Quickly compare hotel options, prices, and amenities with one easy booking flow.</p>
             </article>
             <article className="feature-card">
-              <div className="feature-icon">💰</div>
+              <div className="feature-icon" aria-hidden="true">Rs</div>
               <h3>Clear pricing</h3>
               <p>See accurate room details and pricing before you confirm so you can book confidently.</p>
             </article>
             <article className="feature-card">
-              <div className="feature-icon">⚡</div>
+              <div className="feature-icon" aria-hidden="true">AI</div>
               <h3>Faster account setup</h3>
               <p>Create your account quickly, save favorites, and manage bookings without hassle.</p>
             </article>
             <article className="feature-card">
-              <div className="feature-icon">📱</div>
+              <div className="feature-icon" aria-hidden="true">M</div>
               <h3>Mobile friendly</h3>
               <p>Responsive pages make it simple to browse hotels on any device.</p>
             </article>
@@ -90,7 +90,7 @@ function HomePage() {
         <div className="site-section cta-section">
           <div className="cta-card">
             <h2>Ready to find your perfect stay?</h2>
-            <p>Join thousands of travelers who book smarter with StayEase.</p>
+            <p>Start with a city search and browse live Supabase hotel data in seconds.</p>
             <div className="button-row">
               <Link to="/hotels" className="button button-primary">
                 Start exploring

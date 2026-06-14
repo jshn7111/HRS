@@ -30,7 +30,7 @@ function Testimonials() {
         {TESTIMONIALS.map((t) => (
           <blockquote key={t.name} className="testimonial-card">
             <div className="testimonial-stars" aria-label={`${t.rating} out of 5 stars`}>
-              {'★'.repeat(t.rating)}
+              Rated {t.rating}/5
             </div>
             <p>"{t.text}"</p>
             <footer>

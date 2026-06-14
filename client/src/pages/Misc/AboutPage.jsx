@@ -1,10 +1,10 @@
 import SEO from '../../components/seo/SEO';
 
 const VALUES = [
-  { icon: '🎯', title: 'Transparency', desc: 'Clear pricing with no hidden fees. What you see is what you pay.' },
-  { icon: '🛡️', title: 'Trust', desc: 'Verified hotels and genuine reviews from real travelers.' },
-  { icon: '⚡', title: 'Speed', desc: 'Book in minutes with our streamlined, mobile-first experience.' },
-  { icon: '🌍', title: 'Accessibility', desc: 'Hotels across India, from metros to hill stations and beaches.' },
+  { icon: 'TR', title: 'Transparency', desc: 'Clear pricing with no hidden fees. What you see is what you pay.' },
+  { icon: 'OK', title: 'Trust', desc: 'Verified hotels and useful details from city-level hotel records.' },
+  { icon: 'GO', title: 'Speed', desc: 'Book in minutes with our streamlined, mobile-first experience.' },
+  { icon: 'IN', title: 'Accessibility', desc: 'Hotels across India, from metros to hill stations and beaches.' },
 ];
 
 function AboutPage() {
@@ -12,7 +12,7 @@ function AboutPage() {
     <>
       <SEO
         title="About StayEase"
-        description="Learn about StayEase — India's modern hotel booking platform built for travelers who value transparency, trust, and simplicity."
+        description="Learn about StayEase, India's modern hotel booking platform built for travelers who value transparency, trust, and simplicity."
         path="/about"
       />
       <section className="about-page">
@@ -54,7 +54,7 @@ function AboutPage() {
 
           <div className="about-stats">
             <div className="stat-card">
-              <strong>1,250+</strong>
+              <strong>5000</strong>
               <span>Hotels listed</span>
             </div>
             <div className="stat-card">
@@ -62,11 +62,11 @@ function AboutPage() {
               <span>Happy travelers</span>
             </div>
             <div className="stat-card">
-              <strong>30+</strong>
+              <strong>25</strong>
               <span>Cities covered</span>
             </div>
             <div className="stat-card">
-              <strong>4.8★</strong>
+              <strong>4.8/5</strong>
               <span>Average rating</span>
             </div>
           </div>

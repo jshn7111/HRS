@@ -58,7 +58,7 @@ function HotelDetailPage() {
             <h1>{hotel.name}</h1>
             <p className="hotel-detail-location">{hotel.location}</p>
             <div className="hotel-detail-meta">
-              <span className="hotel-rating-badge">★ {hotel.rating}</span>
+              <span className="hotel-rating-badge">Rating {hotel.rating}</span>
               <span>From {formatCurrency(hotel.price_from)}/night</span>
             </div>
           </div>
@@ -77,7 +77,7 @@ function HotelDetailPage() {
                 <div className="amenities-grid">
                   {hotel.amenities.map((a) => (
                     <span key={a} className="amenity-tag amenity-tag-lg">
-                      ✓ {a}
+                      Included: {a}
                     </span>
                   ))}
                 </div>

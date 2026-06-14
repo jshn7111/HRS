@@ -21,7 +21,7 @@ function MobileMenu({ isOpen, onClose, links, user, onSignOut }) {
     <div className="mobile-menu-overlay" onClick={onClose} role="presentation">
       <nav className="mobile-menu" onClick={(e) => e.stopPropagation()} aria-label="Mobile navigation">
         <button type="button" className="mobile-menu-close" onClick={onClose} aria-label="Close menu">
-          ✕
+          X
         </button>
         <div className="mobile-menu-links">
           {links.map((link) => (

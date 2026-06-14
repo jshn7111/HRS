@@ -9,12 +9,21 @@
   "scripts": {
     "build": "npm run build --workspace=stayease-client",
     "dev": "concurrently \"npm run dev --workspace=stayease-client\" \"npm run dev --workspace=stayease-server\"",
+    "generate:hotels": "node scripts/generateHotelsData.js",
+    "split:hotels-sql": "node scripts/splitHotelsSql.js",
+    "setup:supabase-db": "node scripts/setupSupabaseDatabase.js",
+    "seed:mongo:hotels": "node scripts/seedMongoHotels.js",
+    "seed:postgres:hotels": "node scripts/seedPostgresHotels.js",
     "start": "npm run dev",
     "start:client": "npm run dev --workspace=stayease-client",
     "start:server": "npm run start --workspace=stayease-server",
     "test": "npm test --workspaces --if-present"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "pg": "^8.21.0"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.0"
   }
 }

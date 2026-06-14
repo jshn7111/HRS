@@ -3,10 +3,10 @@ import ContactForm from '../../components/contact/ContactForm';
 import { STAYEASE_CONTACT } from '../../constants/contactInfo';
 
 const CONTACT_INFO = [
-  { icon: '\u{1F4E7}', label: 'Email', value: STAYEASE_CONTACT.email },
-  { icon: '\u{1F4DE}', label: 'Phone', value: STAYEASE_CONTACT.phone },
-  { icon: '\u{1F4CD}', label: 'Head Office', value: STAYEASE_CONTACT.headOffice },
-  { icon: '\u{1F550}', label: 'Hours', value: STAYEASE_CONTACT.hours },
+  { icon: 'EM', label: 'Email', value: STAYEASE_CONTACT.email },
+  { icon: 'PH', label: 'Phone', value: STAYEASE_CONTACT.phone },
+  { icon: 'HQ', label: 'Head Office', value: STAYEASE_CONTACT.headOffice },
+  { icon: 'HR', label: 'Hours', value: STAYEASE_CONTACT.hours },
 ];
 
 function ContactPage() {

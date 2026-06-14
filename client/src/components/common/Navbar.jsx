@@ -29,7 +29,7 @@ function Navbar() {
     <header className="site-header">
       <nav className="site-nav" aria-label="Main navigation">
         <Link to="/" className="nav-brand">
-          <span className="nav-brand-icon">🏨</span>
+          <span className="nav-brand-icon" aria-hidden="true">SE</span>
           StayEase
         </Link>
 

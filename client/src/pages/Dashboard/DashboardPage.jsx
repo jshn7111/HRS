@@ -34,9 +34,9 @@ function DashboardPage() {
             <h2>Profile</h2>
             <dl className="profile-dl">
               <dt>Name</dt>
-              <dd>{user?.name || '—'}</dd>
+              <dd>{user?.name || '-'}</dd>
               <dt>Email</dt>
-              <dd>{user?.email || '—'}</dd>
+              <dd>{user?.email || '-'}</dd>
               <dt>Role</dt>
               <dd className="role-badge">{user?.role || 'user'}</dd>
             </dl>
@@ -66,7 +66,7 @@ function DashboardPage() {
                       <strong>{b.hotels?.name}</strong>
                       <span>{b.hotels?.city}</span>
                       <span className="booking-dates">
-                        {b.check_in} → {b.check_out}
+                        {b.check_in} to {b.check_out}
                       </span>
                     </div>
                     <div className="booking-item-right">

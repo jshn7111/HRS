@@ -17,7 +17,7 @@ function FAQAccordion({ faqs }) {
             >
               {faq.question}
               <span className="faq-icon" aria-hidden="true">
-                {isOpen ? '−' : '+'}
+                {isOpen ? '-' : '+'}
               </span>
             </button>
             {isOpen && (

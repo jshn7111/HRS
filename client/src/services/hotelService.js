@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import { fetchOpenStreetMapHotelsByCity } from './openStreetMapService';
 
 const FALLBACK_HOTELS = [
   {
@@ -14,6 +15,8 @@ const FALLBACK_HOTELS = [
     rating: 4.8,
     price_from: 8500,
     is_featured: true,
+    lat: 18.943,
+    lng: 72.8238,
   },
   {
     id: '2',
@@ -28,6 +31,8 @@ const FALLBACK_HOTELS = [
     rating: 4.6,
     price_from: 6200,
     is_featured: true,
+    lat: 12.9698,
+    lng: 77.75,
   },
   {
     id: '3',
@@ -42,6 +47,56 @@ const FALLBACK_HOTELS = [
     rating: 4.5,
     price_from: 4800,
     is_featured: true,
+    lat: 28.6315,
+    lng: 77.2167,
+  },
+  {
+    id: '4',
+    name: 'Heritage Haveli',
+    slug: 'heritage-haveli',
+    description: 'Experience royal Rajasthani hospitality in a restored haveli with courtyard dining.',
+    location: 'Old City, Jaipur',
+    city: 'Jaipur',
+    country: 'India',
+    amenities: ['WiFi', 'Restaurant', 'Cultural Tours', 'Garden'],
+    images: ['https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800'],
+    rating: 4.7,
+    price_from: 5500,
+    is_featured: false,
+    lat: 26.9258,
+    lng: 75.8237,
+  },
+  {
+    id: '5',
+    name: 'Coastal Breeze Inn',
+    slug: 'coastal-breeze-inn',
+    description: 'Beachfront property with direct sea access, water sports, and sunset dining.',
+    location: 'Baga Beach, Goa',
+    city: 'Goa',
+    country: 'India',
+    amenities: ['WiFi', 'Beach Access', 'Pool', 'Restaurant'],
+    images: ['https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800'],
+    rating: 4.4,
+    price_from: 3900,
+    is_featured: false,
+    lat: 15.5553,
+    lng: 73.7517,
+  },
+  {
+    id: '6',
+    name: 'Summit View Lodge',
+    slug: 'summit-view-lodge',
+    description: 'Mountain retreat with Himalayan views, fireplace lounges, and trekking packages.',
+    location: 'Mall Road, Shimla',
+    city: 'Shimla',
+    country: 'India',
+    amenities: ['WiFi', 'Fireplace', 'Restaurant', 'Trekking'],
+    images: ['https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800'],
+    rating: 4.3,
+    price_from: 3200,
+    is_featured: false,
+    lat: 31.1048,
+    lng: 77.1734,
   },
 ];
 
@@ -52,12 +107,30 @@ export async function fetchHotels({ city, search, featured } = {}) {
   if (search) query = query.or(`name.ilike.%${search}%,city.ilike.%${search}%,location.ilike.%${search}%`);
   if (featured) query = query.eq('is_featured', true);
 
+  const osmHotelsPromise =
+    city && !featured
+      ? fetchOpenStreetMapHotelsByCity(city).catch((osmError) => {
+          console.warn('OpenStreetMap hotel search unavailable:', osmError.message);
+          return [];
+        })
+      : Promise.resolve([]);
+
   const { data, error } = await query;
+  let hotels = [];
+
   if (error) {
     console.warn('Using fallback hotel data:', error.message);
-    return filterFallback(FALLBACK_HOTELS, { city, search, featured });
+    hotels = filterFallback(FALLBACK_HOTELS, { city, search, featured });
+  } else {
+    hotels = data?.length ? data : filterFallback(FALLBACK_HOTELS, { city, search, featured });
   }
-  return data?.length ? data : filterFallback(FALLBACK_HOTELS, { city, search, featured });
+
+  if (city && !featured) {
+    const osmHotels = await osmHotelsPromise;
+    hotels = mergeHotels(hotels, filterFallback(osmHotels, { search }));
+  }
+
+  return hotels;
 }
 
 export async function fetchHotelBySlug(slug) {
@@ -103,4 +176,19 @@ function filterFallback(hotels, { city, search, featured }) {
   }
   if (featured) result = result.filter((h) => h.is_featured);
   return result;
+}
+
+function mergeHotels(primaryHotels, secondaryHotels) {
+  const seen = new Set();
+  const merged = [];
+
+  [...primaryHotels, ...secondaryHotels].forEach((hotel) => {
+    const key = `${hotel.name || ''}|${hotel.city || ''}`.toLowerCase();
+    if (seen.has(key)) return;
+
+    seen.add(key);
+    merged.push(hotel);
+  });
+
+  return merged;
 }

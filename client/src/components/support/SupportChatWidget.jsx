@@ -33,7 +33,7 @@ export default function SupportChatWidget() {
     {
       id: crypto?.randomUUID?.() || String(Date.now()),
       from: 'bot',
-      text: 'Hi! I’m StayEase Support. Choose a quick option below or type your message.',
+      text: "Hi! I'm StayEase Support. Choose a quick option below or type your message.",
       time: new Date(),
     },
   ]);
@@ -60,8 +60,8 @@ export default function SupportChatWidget() {
       booking: 'Please share your booking ID (or the hotel name + check-in date). I will help you resolve it.',
       refund: 'For refund status, share your booking ID and payment reference (if available).',
       cancel: 'I can help with cancellation. Tell me your booking ID and confirm the cancellation date.',
-      payment: 'Payment issues: please share the payment transaction id or screenshot details, and we’ll assist.',
-      general: 'Sure—tell me what you need. I’ll guide you to the right option.',
+      payment: "Payment issues: please share the payment transaction id or screenshot details, and we'll assist.",
+      general: "Sure - tell me what you need. I'll guide you to the right option.",
     };
 
     const normalized = cleaned.toLowerCase();
@@ -124,7 +124,7 @@ export default function SupportChatWidget() {
                 WhatsApp
               </button>
               <button type="button" className="support-chat-icon-btn" onClick={() => setOpen(false)} aria-label="Close chat">
-                ✕
+                X
               </button>
             </div>
           </div>
